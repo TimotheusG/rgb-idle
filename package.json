@@ -1,6 +1,7 @@
 {
   "name": "rgb-idle",
   "version": "0.1.0",
+  "homepage": "https://timotheusg.github.io/rgb-idle",
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.23",
