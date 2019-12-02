@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Color from '../models/color'
-import Display from './display'
+import Score from './score'
 
 
 class Game extends Component {
   constructor(props){
     super(props);
 
-    this.state = {name: 'abc', colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 1, color_cost: 5};
+    this.state = {name: 'abc', colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 1};
     //'#ff0000', '#00ff00', '#0000ff'
   }
 
@@ -50,16 +50,17 @@ class Game extends Component {
     if(pixels >= color_cost)
     {      
       this.setState(previousState => (
-        {colors: [...previousState.colors, col.getColorString()], pixels: pixels - color_cost, color_cost: color_cost + 1}
+        {colors: [...previousState.colors, col.getColorString()], 
+          pixels: pixels - color_cost, color_cost: color_cost + 1}
     )); 
     }
     
   }
 
   handlePieceClick() {
-    const { to_next_pixel} = this.state;
+    const { to_next_pixel, pixel_speed} = this.state;
     this.setState(() => ({
-      to_next_pixel: (to_next_pixel + 1)
+      to_next_pixel: (to_next_pixel + pixel_speed)
     }));
     this.checkToPixels();
   }
@@ -69,16 +70,8 @@ class Game extends Component {
     return (
       <div class="container">
         <div class="row">
-        <div class="col">
-          <Display text="To Next Pixel" value={this.state.to_next_pixel}></Display>
-          </div>
-          <div class="col">
-          <Display text="Pixels" value={this.state.pixels}></Display>
-          </div>
-          <div class="col"> 
-          <Display text="Colors" value={this.state.colors.length}></Display>
-          </div>
-          </div>
+        </div>
+        <Score to_next_pixel={this.state.to_next_pixel} pixels={this.state.pixels} colors_length={this.state.colors.length}></Score>
         <div class="row">
           <div class="col">        
           <button class="btn btn-primary btn-block" onClick= {(event) => this.handlePieceClick(event)}>Get Pixel Piece</button>
