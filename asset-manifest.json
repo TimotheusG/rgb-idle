@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/rgb-idle/static/css/main.34de6062.chunk.css",
-    "main.js": "/rgb-idle/static/js/main.54f7527f.chunk.js",
-    "main.js.map": "/rgb-idle/static/js/main.54f7527f.chunk.js.map",
+    "main.css": "/rgb-idle/static/css/main.74edc362.chunk.css",
+    "main.js": "/rgb-idle/static/js/main.e30dadec.chunk.js",
+    "main.js.map": "/rgb-idle/static/js/main.e30dadec.chunk.js.map",
     "runtime-main.js": "/rgb-idle/static/js/runtime-main.f0654103.js",
     "runtime-main.js.map": "/rgb-idle/static/js/runtime-main.f0654103.js.map",
-    "static/js/2.3e76b10a.chunk.js": "/rgb-idle/static/js/2.3e76b10a.chunk.js",
-    "static/js/2.3e76b10a.chunk.js.map": "/rgb-idle/static/js/2.3e76b10a.chunk.js.map",
+    "static/css/2.b0bb7f2c.chunk.css": "/rgb-idle/static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.5246233e.chunk.js": "/rgb-idle/static/js/2.5246233e.chunk.js",
+    "static/js/2.5246233e.chunk.js.map": "/rgb-idle/static/js/2.5246233e.chunk.js.map",
     "index.html": "/rgb-idle/index.html",
-    "precache-manifest.c5b4554bb7f70609c6691673cc9c8b91.js": "/rgb-idle/precache-manifest.c5b4554bb7f70609c6691673cc9c8b91.js",
+    "precache-manifest.be110c93bbf054eb7d75496ca92bc998.js": "/rgb-idle/precache-manifest.be110c93bbf054eb7d75496ca92bc998.js",
     "service-worker.js": "/rgb-idle/service-worker.js",
-    "static/css/main.34de6062.chunk.css.map": "/rgb-idle/static/css/main.34de6062.chunk.css.map"
+    "static/css/2.b0bb7f2c.chunk.css.map": "/rgb-idle/static/css/2.b0bb7f2c.chunk.css.map",
+    "static/css/main.74edc362.chunk.css.map": "/rgb-idle/static/css/main.74edc362.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.f0654103.js",
-    "static/js/2.3e76b10a.chunk.js",
-    "static/css/main.34de6062.chunk.css",
-    "static/js/main.54f7527f.chunk.js"
+    "static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.5246233e.chunk.js",
+    "static/css/main.74edc362.chunk.css",
+    "static/js/main.e30dadec.chunk.js"
   ]
 }
