@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Game from './components/game'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import GameContainer from './components/game-container'
 
 class App extends Component {
-
   render() {
-
     return (
-      <Game></Game>
+      <GameContainer></GameContainer>
     );
   }
 }

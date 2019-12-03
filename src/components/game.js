@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Color from '../models/color'
-import Score from './score'
+import Color from '../models/color';
+import Score from './score';
 
 
 class Game extends Component {
   constructor(props){
     super(props);
 
-    this.state = {name: 'abc', colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 1};
+    this.state = {colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 1};
     //'#ff0000', '#00ff00', '#0000ff'
   }
 
@@ -82,7 +82,7 @@ class Game extends Component {
         <button id="color-btn" class="btn btn-primary btn-block" disabled={this.state.pixels < this.state.color_cost} onClick= {(event) => this.handleClick(event)}>Add New Color (Cost: {this.state.color_cost} Pixels)</button>
         </div>
         <div class="row">
-    {this.state.colors.map(color => <button class="btn btn-color" disabled style={{backgroundColor: color}}>{color}</button>)}
+    {this.state.colors.map(color => <button class="btn btn-color" style={{backgroundColor: color}}>{color}</button>)}
     </div>
     </div>
     </div>
