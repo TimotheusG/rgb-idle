@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/rgb-idle/static/css/main.74edc362.chunk.css",
-    "main.js": "/rgb-idle/static/js/main.9e85887b.chunk.js",
-    "main.js.map": "/rgb-idle/static/js/main.9e85887b.chunk.js.map",
+    "main.js": "/rgb-idle/static/js/main.7a5b6e63.chunk.js",
+    "main.js.map": "/rgb-idle/static/js/main.7a5b6e63.chunk.js.map",
     "runtime-main.js": "/rgb-idle/static/js/runtime-main.f0654103.js",
     "runtime-main.js.map": "/rgb-idle/static/js/runtime-main.f0654103.js.map",
     "static/css/2.b0bb7f2c.chunk.css": "/rgb-idle/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.f5672487.chunk.js": "/rgb-idle/static/js/2.f5672487.chunk.js",
-    "static/js/2.f5672487.chunk.js.map": "/rgb-idle/static/js/2.f5672487.chunk.js.map",
+    "static/js/2.3e6a39a8.chunk.js": "/rgb-idle/static/js/2.3e6a39a8.chunk.js",
+    "static/js/2.3e6a39a8.chunk.js.map": "/rgb-idle/static/js/2.3e6a39a8.chunk.js.map",
     "index.html": "/rgb-idle/index.html",
-    "precache-manifest.7117ac403ce06f4a63cf25cc2f6f7dac.js": "/rgb-idle/precache-manifest.7117ac403ce06f4a63cf25cc2f6f7dac.js",
+    "precache-manifest.314403cf31ee254af51c4532c73294c4.js": "/rgb-idle/precache-manifest.314403cf31ee254af51c4532c73294c4.js",
     "service-worker.js": "/rgb-idle/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/rgb-idle/static/css/2.b0bb7f2c.chunk.css.map",
     "static/css/main.74edc362.chunk.css.map": "/rgb-idle/static/css/main.74edc362.chunk.css.map"
@@ -17,8 +17,8 @@
   "entrypoints": [
     "static/js/runtime-main.f0654103.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.f5672487.chunk.js",
+    "static/js/2.3e6a39a8.chunk.js",
     "static/css/main.74edc362.chunk.css",
-    "static/js/main.9e85887b.chunk.js"
+    "static/js/main.7a5b6e63.chunk.js"
   ]
 }
