@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Game from './game'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Welcome from './welcome'
+import TierContainer from './tier-container'
 
 class GameContainer extends Component {    
     state = {
@@ -21,14 +21,14 @@ class GameContainer extends Component {
   render() {
     return (
       <Tabs activeKey={this.state.selectedIndex} onSelect={this.handleSelect} defaultActiveKey='welcome'>
-        <Tab eventKey="welcome" title='Welcome'>
+        <Tab eventKey="welcome">
         <Welcome onClick={this.handleButtonClick}></Welcome>
       </Tab>
       <Tab eventKey="game" title="RBG">   
-      <Game></Game>
+      <TierContainer></TierContainer>
       </Tab>      
         <Tab eventKey="settings" title="settings">
-        <Game></Game>
+            <div>More to come here</div>
         </Tab>        
       </Tabs>
     );

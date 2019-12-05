@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Color from '../models/color';
 import Score from './score';
+import ColorContainer from './color-container'
+import PixelContainer from './pixel-container'
 
 
 class Game extends Component {
   constructor(props){
     super(props);
 
-    this.state = {colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 1};
+    this.state = {colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 2, isUpgraded: false, upgradeTier: props.upgradeTier};
     //'#ff0000', '#00ff00', '#0000ff'
   }
 
@@ -41,7 +43,7 @@ class Game extends Component {
     this.setState({name: param});
   }
 
-  handleClick() {
+  addColor = () => {
     var a = Math.floor( Math.random() * 255);
     var b = Math.floor( Math.random() * 255);
     var c = Math.floor( Math.random() * 255);
@@ -57,7 +59,7 @@ class Game extends Component {
     
   }
 
-  handlePieceClick() {
+  handlePieceClick = () => {
     const { to_next_pixel, pixel_speed} = this.state;
     this.setState(() => ({
       to_next_pixel: (to_next_pixel + pixel_speed)
@@ -65,26 +67,19 @@ class Game extends Component {
     this.checkToPixels();
   }
 
+
   render() {
+    const isGreater = (this.state.colors.length > 5 && !this.state.isUpgraded);
 
     return (
       <div class="container">
         <div class="row">
         </div>
         <Score to_next_pixel={this.state.to_next_pixel} pixels={this.state.pixels} colors_length={this.state.colors.length}></Score>
-        <div class="row">
-          <div class="col">        
-          <button class="btn btn-primary btn-block" onClick= {(event) => this.handlePieceClick(event)}>Get Pixel Piece</button>
-          <div class="progress-bar" role="progressbar" aria-valuenow={this.state.to_next_pixel} aria-valuemin="0" aria-valuemax="100" style={{width: this.state.to_next_pixel+'%', height:'30px'}}></div>              
-        </div>          
-        <div class="col">
-          <div class="row">
-        <button id="color-btn" class="btn btn-primary btn-block" disabled={this.state.pixels < this.state.color_cost} onClick= {(event) => this.handleClick(event)}>Add New Color (Cost: {this.state.color_cost} Pixels)</button>
-        </div>
-        <div class="row">
-    {this.state.colors.map(color => <button class="btn btn-color" style={{backgroundColor: color}}>{color}</button>)}
-    </div>
-    </div>
+        <div class="row">      
+              <PixelContainer to_next_pixel={this.state.to_next_pixel} handlePieceClick={this.handlePieceClick}></PixelContainer>
+  <ColorContainer addColor={this.addColor} pixels={this.state.pixels} color_cost={this.state.color_cost} colors={this.state.colors}></ColorContainer>
+  {isGreater ? (<button onClick={this.state.upgradeTier} class="btn btn-secondary">Upgrade Tier</button>) : (<div></div>) }
     </div>
       </div>
     );
