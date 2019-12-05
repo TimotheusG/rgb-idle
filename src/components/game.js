@@ -9,8 +9,14 @@ class Game extends Component {
   constructor(props){
     super(props);
 
-    this.state = {colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 2, isUpgraded: false, upgradeTier: props.upgradeTier};
-    //'#ff0000', '#00ff00', '#0000ff'
+    if(props.default)
+    {
+      this.state = {colors: [], pixels: 100, to_next_pixel: 0, pixel_speed: 5, color_cost: 2, isUpgraded: false, upgradeTier: props.upgradeTier};
+    }
+    else
+    {
+      this.state = {colors: [], pixels: props.pixels, to_next_pixel: 0, pixel_speed: 5, color_cost: 2, isUpgraded: false, upgradeTier: props.upgradeTier};
+    }
   }
 
   componentDidMount() {
@@ -67,6 +73,13 @@ class Game extends Component {
     this.checkToPixels();
   }
 
+  handleUpgrade = () => {
+    this.state.upgradeTier(this.state.colors.length);
+    this.setState(
+      {isUpgraded: true}
+    )
+  }
+
 
   render() {
     const isGreater = (this.state.colors.length > 5 && !this.state.isUpgraded);
@@ -79,7 +92,7 @@ class Game extends Component {
         <div class="row">      
               <PixelContainer to_next_pixel={this.state.to_next_pixel} handlePieceClick={this.handlePieceClick}></PixelContainer>
   <ColorContainer addColor={this.addColor} pixels={this.state.pixels} color_cost={this.state.color_cost} colors={this.state.colors}></ColorContainer>
-  {isGreater ? (<button onClick={this.state.upgradeTier} class="btn btn-secondary">Upgrade Tier</button>) : (<div></div>) }
+  {isGreater ? (<button onClick={this.handleUpgrade} class="btn btn-secondary">Upgrade Tier</button>) : (<div></div>) }
     </div>
       </div>
     );
