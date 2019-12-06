@@ -7,23 +7,21 @@ class TierContainer extends Component {
     constructor(props){
         super(props);
     
-        this.state = {tiers:[1], newPixels: 0};
+        this.state = {tiers:[{level:1, speed:5}], newPixels: 0};
       } 
-    state = {
-      };
 
       upgradeTier = (colorsCount) => {
         var highestTier = this.state.tiers[this.state.tiers.length-1];
         var newTier = highestTier + 1;
-        this.setState(previousState => ({ tiers: [...previousState.tiers, newTier], newPixels: colorsCount}));
+        this.setState(previousState => ({ tiers: {level: [...previousState.tiers, newTier], speed: 5}, newPixels: colorsCount}));
       };
     
   render() {
     return (
         <Tabs defaultActiveKey='1'>
         {this.state.tiers.map(tier=>
-        <Tab eventKey={tier} title={"Tier " + tier}>
-          {tier == 1 ?
+        <Tab eventKey={tier.level} title={"Tier " + tier.level}>
+          {tier.level == 1 ?
           <Game upgradeTier={this.upgradeTier} default={true}></Game>
           :
           <Game upgradeTier={this.upgradeTier} default={false} pixels={this.state.newPixels}></Game>
