@@ -21,7 +21,7 @@ class TierContainer extends Component {
         <Tabs defaultActiveKey='1'>
         {this.state.tiers.map(tier=>
         <Tab eventKey={tier.level} title={"Tier " + tier.level}>
-          {tier.level == 1 ?
+          {tier.level === 1 ?
           <Game upgradeTier={this.upgradeTier} default={true}></Game>
           :
           <Game upgradeTier={this.upgradeTier} default={false} pixels={this.state.newPixels}></Game>
