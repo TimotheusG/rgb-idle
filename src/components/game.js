@@ -61,8 +61,7 @@ class Game extends Component {
         {colors: [...previousState.colors, col.getColorString()], 
           pixels: pixels - color_cost, color_cost: color_cost + 1}
     )); 
-    }
-    
+    }    
   }
 
   handlePieceClick = () => {
