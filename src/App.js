@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 class App extends Component {
   render() {
     return (
-      <div>
-        <button onClick={this.simpleAction}>Test redux action</button>
+      <div>        
         <pre>
  {
   JSON.stringify(this.props)

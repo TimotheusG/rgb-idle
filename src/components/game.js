@@ -4,7 +4,6 @@ import Score from './score';
 import ColorContainer from './color-container'
 import PixelContainer from './pixel-container'
 import { connect } from 'react-redux';
-import { simpleAction } from '../actions/simpleAction';
 
 
 class Game extends Component {
@@ -20,9 +19,6 @@ class Game extends Component {
       this.state = {colors: [], pixels: props.pixels, to_next_pixel: 0, pixel_speed: 5, color_cost: 2, isUpgraded: false, upgradeTier: props.upgradeTier};
     }
   }
-  simpleAction = (event) => {
-    this.props.simpleAction();
-   }
 
   componentDidMount() {
     this.myInterval = setInterval(() => {
@@ -70,7 +66,6 @@ class Game extends Component {
     this.setState(() => ({
       to_next_pixel: (to_next_pixel + pixel_speed)
     }));
-    this.props.simpleAction();
     this.checkToPixels();
   }
 
@@ -103,8 +98,5 @@ class Game extends Component {
 const mapStateToProps = state => ({
   ...state
  })
- const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
- })
 
-export default connect(mapStateToProps, mapDispatchToProps) (Game);
+export default connect(mapStateToProps) (Game);
