@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
 import Game from './game'
+import {connect} from 'react-redux'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 class TierContainer extends Component {   
-    constructor(props){
-        super(props);
-        
-        this.state = {tiers: [1], newPixels: 0};
-      } 
 
-      upgradeTier = (colorsCount) => {
-        var highestTier = this.state.tiers[this.state.tiers.length-1];
-        var newTier = highestTier + 1;
-        this.setState(previousState => ({ tiers:[...previousState.tiers, newTier],newPixels: colorsCount}));
-      };
+      // upgradeTier = (colorsCount) => {
+      //   var highestTier = this.state.tiers[this.state.tiers.length-1];
+      //   var newTier = highestTier + 1;
+      //   this.setState(previousState => ({ tiers:[...previousState.tiers, newTier],newPixels: colorsCount}));
+      // };
     
   render() {
     return (
-        <Tabs defaultActiveKey='1'>
-        {this.state.tiers.map(tier=>
-        <Tab eventKey={tier} title={"Tier " + tier}>
-          {tier === 1 ?
-          <Game upgradeTier={this.upgradeTier} default={true}></Game>
+        <Tabs defaultActiveKey='0'>
+        {this.props.tiers.map(tier=>
+        <Tab eventKey={tier.id} title={"Tier " + (tier.id+1)}>
+          {tier.id === 0 ?
+          <Game id={tier.id}></Game>
           :
-          <Game upgradeTier={this.upgradeTier} default={false} pixels={this.state.newPixels}></Game>
+          <Game pixels={0} id={tier.id}></Game>
           }
           </Tab>
           )}        
@@ -33,4 +29,8 @@ class TierContainer extends Component {
   }
 }
 
-export default TierContainer;
+const mapStateToProps = state => ({
+  ...state.tierReducer
+ })
+
+export default connect(mapStateToProps)(TierContainer);

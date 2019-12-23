@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
-const ColorContainer = (props) => {
+class ColorContainer extends Component {
+  addColor = (e) => {
+    e.preventDefault();
+    this.props.dispatch({
+      type: 'ADD_COLOR', id: this.props.id
+    });
+  }
+  render() {
     return (
-            <div class="col">
-          <div class="row">
-        <button id="color-btn" class="btn btn-primary btn-block" disabled={props.pixels < props.color_cost} onClick= {props.addColor}>Add New Color (Cost: {props.color_cost} Pixels)</button>
+      <div class="col">
+        <div class="row">
+          <button id="color-btn" class="btn btn-primary btn-block" disabled={this.props.pixels < this.props.color_cost} onClick={this.addColor}>Add New Color (Cost: {this.props.color_cost} Pixels)</button>
         </div>
         <div class="row">
-    {props.colors.map(color => <button class="btn btn-color" style={{backgroundColor: color}}>{color}</button>)}
-    </div>
-    </div>
+          {this.props[this.props.id].colors.map(color => <button class="btn btn-color" style={{ backgroundColor: color }}>{color}</button>)}
+        </div>
+      </div>
     );
-  
-    }
+  }
+}
 
-export default ColorContainer;
+const mapStateToProps = state => ({
+  ...state.tierReducer.tiers
+ })
+
+export default connect(mapStateToProps)(ColorContainer);
